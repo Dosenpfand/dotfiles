@@ -1,0 +1,9 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+"hyprland.conf" = "~/.config/hypr/hyprland.conf"
+
+[default.variables]
