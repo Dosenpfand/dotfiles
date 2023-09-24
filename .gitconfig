@@ -1,0 +1,62 @@
+[user]
+{{#if name}}
+    name = {{name}}
+{{else}}
+    name = Dosenpfand
+{{/if}}
+
+{{#if email}}
+    email = {{email}}
+{{else}}
+    email = git@sad.bz
+{{/if}}
+
+[credential]
+    helper = store
+
+[core]
+    {{#if (and (not (is_executable "difft")) (is_executable "delta"))}}
+    pager = delta
+    {{/if}}
+    {{#if (eq dotter.os "windows")}}
+    symlinks = true
+    autocrlf = true
+    {{else}}
+    autocrlf = input
+    {{/if}}
+
+{{#if (and (not (is_executable "difft")) (is_executable "delta"))}}
+[delta]
+    line-numbers = true
+    hunk-header-style = omit
+    syntax-theme = zenburn
+    file-style = bold yellow ul
+    file-decoration-style = none
+    side-by-side = true
+
+{{/if}}
+[help]
+    autocorrect = 20
+
+[alias]
+    changes = "log -M -L"
+
+[push]
+    autoSetupRemote = true
+
+[pull]
+    rebase = true
+
+[merge]
+    conflictstyle = diff3
+
+{{#if (is_executable "difft")}}
+[diff]
+    external = "difft"
+{{/if}}
+
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process

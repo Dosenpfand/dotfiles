@@ -5,5 +5,14 @@ depends = []
 
 [default.files]
 "hyprland.conf" = "~/.config/hypr/hyprland.conf"
+"waybar/config" = "~/.config/waybar/config"
+"waybar/style.css" = "~/.config/waybar/style.css"
+"dunstrc" = "~/.config/dunst/dunstrc"
+"kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "symbolic" }
+"swaylock_config" = "~/.config/swaylock/config"
+"starship.toml" = "~/.config/starship.toml"
+".bashrc" = "~/.bashrc"
+".profile" = "~/.profile"
+".gitconfig" = "~/.gitconfig"
 
 [default.variables]
