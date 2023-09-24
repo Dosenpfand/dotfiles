@@ -11,7 +11,7 @@ iatest=$(expr index "$-" i)
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	 . /etc/bashrc
+	. /etc/bashrc
 fi
 
 # Enable bash programmable completion features in interactive shells
@@ -61,10 +61,14 @@ if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 # Set the default editor
 export EDITOR=vim
 export VISUAL=vim
+
 alias pico='edit'
 alias spico='sedit'
 alias nano='edit'
 alias snano='sedit'
+
+# Ripgrep
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
 export CLICOLOR=1
