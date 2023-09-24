@@ -1,0 +1,65 @@
+{
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": false
+    },
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "redhat.telemetry.enabled": false,
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+    "rust-analyzer.inlayHints.maxLength": 40,
+    "editor.inlayHints.enabled": "onUnlessPressed",
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.fontLigatures": true,
+    "workbench.editor.enablePreview": false,
+    "explorer.confirmDelete": false,
+    "cSpell.userWords": [
+        "actix",
+        "blackbox",
+        "fcaptcha",
+        "hmac",
+        "joinedload",
+        "matheworkout",
+        "realip",
+        "sqlalchemy",
+        "thiserror"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "git.confirmSync": false,
+    "git.enableSmartCommit": false,
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "window.titleBarStyle": "custom",
+    "explorer.confirmDragAndDrop": false,
+    "git.autofetch": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "telemetry.telemetryLevel": "off",
+    "update.mode": "none",
+    "editor.wordWrapColumn": 100,
+    "editor.wordWrap": "off",
+    "editor.rulers": [
+        100
+    ],
+    "editor.minimap.enabled": true,
+
+    // Latex settings
+    "editor.minimap.renderCharacters": false,
+    "editor.renderWhitespace": "boundary",
+    "latex-workshop.chktex.enabled": true,
+
+    // Debug
+    "C_Cpp.loggingLevel": "Debug",
+    "workbench.startupEditor": "newUntitledFile",
+    "update.showReleaseNotes": false,
+    "workbench.colorTheme": "Default Dark Modern",
+    "python.experiments.enabled": false,
+    "json.maxItemsComputed": 15000,
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "languageToolLinter.languageTool.language": "de",
+}

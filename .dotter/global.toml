@@ -14,5 +14,8 @@ depends = []
 ".bashrc" = "~/.bashrc"
 ".profile" = "~/.profile"
 ".gitconfig" = "~/.gitconfig"
+"vscode/settings.json" = "~/.config/Code/User/settings.json"
+"vscode/keybindings.json" = "~/.config/Code/User/keybindings.json"
+
 
 [default.variables]
