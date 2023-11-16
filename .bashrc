@@ -21,7 +21,11 @@ elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
-. /usr/share/git/git-prompt.sh
+if [ -f /usr/share/git/git-prompt.sh ]; then
+	. /usr/share/git/git-prompt.sh
+elif [ -f /usr/share/doc/git/contrib/completion/git-prompt.sh ]; then
+	. /usr/share/doc/git/contrib/completion/git-prompt.sh
+fi
 
 #######################################################
 # EXPORTS
@@ -252,8 +256,12 @@ function whatsmyip ()
 # Prompt
 eval "$(starship init bash)"
 
-source /usr/share/fzf/key-bindings.bash
-source /usr/share/fzf/completion.bash
+if [ -f /usr/share/fzf/key-bindings.bash ]; then
+	. /usr/share/fzf/key-bindings.bash
+	. /usr/share/fzf/completion.bash
+elif [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
+	. /usr/share/fzf/shell/key-bindings.bash
+fi
 
 eval $(keychain --eval --quiet id_ed25519 id_rsa)
 
