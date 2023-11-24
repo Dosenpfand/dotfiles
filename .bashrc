@@ -256,11 +256,15 @@ function whatsmyip ()
 # Prompt
 eval "$(starship init bash)"
 
+# fzf
 if [ -f /usr/share/fzf/key-bindings.bash ]; then
 	. /usr/share/fzf/key-bindings.bash
 	. /usr/share/fzf/completion.bash
 elif [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
 	. /usr/share/fzf/shell/key-bindings.bash
+fi
+if [ -f ~/bin/fzf-git.sh ]; then
+	. ~/bin/fzf-git.sh
 fi
 
 eval $(keychain --eval --quiet id_ed25519 id_rsa)
