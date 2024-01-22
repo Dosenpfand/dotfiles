@@ -17,7 +17,7 @@ depends = []
 "vscode/settings.json" = "~/.config/Code/User/settings.json"
 "vscode/keybindings.json" = "~/.config/Code/User/keybindings.json"
 "ripgreprc" = "~/.ripgreprc"
-"alacritty.yml" = "~/.config/alacritty/alacritty.yml"
+"alacritty.toml" = "~/.config/alacritty/alacritty.toml"
 ".tmux.conf" = "~/.tmux.conf"
 
 [default.variables]
