@@ -15,17 +15,11 @@
     helper = store
 
 [core]
-    {{#if (and (not (is_executable "difft")) (is_executable "delta"))}}
     pager = delta
-    {{/if}}
-    {{#if (eq dotter.os "windows")}}
-    symlinks = true
-    autocrlf = true
-    {{else}}
-    autocrlf = input
-    {{/if}}
 
-{{#if (and (not (is_executable "difft")) (is_executable "delta"))}}
+[log]
+    date = iso
+
 [delta]
     line-numbers = true
     hunk-header-style = omit
@@ -34,26 +28,37 @@
     file-decoration-style = none
     side-by-side = true
 
-{{/if}}
 [help]
-    autocorrect = 20
+    autocorrect = prompt
 
 [alias]
     changes = "log -M -L"
 
+[commit]
+    verbose = true
+
 [push]
-    autoSetupRemote = true
+    default = current
 
 [pull]
     rebase = true
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
+    tool = meld
 
-{{#if (is_executable "difft")}}
+[rebase]
+    autosquash = true
+    autostash = true
+
+[rerere]
+    enabled = true
+
 [diff]
     external = "difft"
-{{/if}}
+
+[branch]
+    sort = committerdate
 
 [filter "lfs"]
     required = true

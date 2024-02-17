@@ -198,10 +198,6 @@ alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' 
 # SHA1
 alias sha1='openssl sha1'
 
-# SSH
-alias s="kitty +kitten ssh"
-
-
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
 	for archive in $*; do
