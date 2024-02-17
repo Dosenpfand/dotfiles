@@ -23,9 +23,11 @@
         "hmac",
         "joinedload",
         "matheworkout",
+        "mongoengine",
         "realip",
         "sqlalchemy",
-        "thiserror"
+        "thiserror",
+        "wtforms"
     ],
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -57,7 +59,6 @@
     "C_Cpp.loggingLevel": "Debug",
     "workbench.startupEditor": "newUntitledFile",
     "update.showReleaseNotes": false,
-    "workbench.colorTheme": "Default Dark Modern",
     "python.experiments.enabled": false,
     "json.maxItemsComputed": 15000,
     "C_Cpp.clang_format_fallbackStyle": "LLVM",

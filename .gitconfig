@@ -53,12 +53,17 @@
 
 [rerere]
     enabled = true
+    autoUpdate = true
 
 [diff]
     external = "difft"
 
 [branch]
-    sort = committerdate
+    sort = -committerdate
+
+[column]
+    ui = auto
+
 
 [filter "lfs"]
     required = true
@@ -67,6 +72,7 @@
     process = git-lfs filter-process
 
 [alias]
+    fpush = push --force-with-lease
     lg = lg1
     lg1 = lg1-specific --all
     lg2 = lg2-specific --all
