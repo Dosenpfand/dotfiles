@@ -74,6 +74,7 @@ symbol = ""
 format = '|[$symbol($version)]($style)'
 
 [git_branch]
+truncation_length = 12
 symbol = ""
 format = '|[$symbol$branch]($style)'
 
