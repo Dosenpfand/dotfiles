@@ -1,5 +1,6 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
-$os\
 $username\
 |\
 $directory\
@@ -21,6 +22,8 @@ $scala\
 $docker_context\
 |\
 $time\
+$memory_usage\
+$cmd_duration\
 $character\
 """
 
@@ -124,6 +127,18 @@ format = '|[$symbol($version(|$virtualenv))]($style)'
 disabled = false
 time_format = "%H:%m:%S"
 format = '[$time]($style)'
+
+[memory_usage]
+disabled = false
+threshold = 66
+format = "|[${ram}( ${swap})]($style)"
+
+[cmd_duration]
+min_time = 1000
+format = '|[$duration]($style)'
+
+[jobs]
+format = "|[$symbol$number]($style)"
 
 [character]
 format = '$symbol'
