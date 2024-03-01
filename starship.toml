@@ -125,7 +125,7 @@ format = '|[$symbol($version(|$virtualenv))]($style)'
 
 [time]
 disabled = false
-time_format = "%H:%m:%S"
+time_format = "%H:%M:%S"
 format = '[$time]($style)'
 
 [memory_usage]
