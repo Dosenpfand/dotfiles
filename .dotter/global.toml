@@ -18,5 +18,6 @@ depends = []
 "ripgreprc" = "~/.ripgreprc"
 "alacritty.toml" = "~/.config/alacritty/alacritty.toml"
 ".tmux.conf" = "~/.tmux.conf"
+"bin/frg.sh" = "~/bin/frg"
 
 [default.variables]
