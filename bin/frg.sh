@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-
 # From: https://github.com/junegunn/fzf/blob/master/ADVANCED.md#switching-between-ripgrep-mode-and-fzf-mode
 rm -f /tmp/rg-fzf-{r,f}
+
 RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
 INITIAL_QUERY="${*:-}"
 : | fzf --ansi --disabled --query "$INITIAL_QUERY" \
@@ -16,4 +16,4 @@ INITIAL_QUERY="${*:-}"
     --header '╱ CTRL-R (rg) ╱ CTRL-F (fzf) ╱' \
     --preview 'bat --color=always {1} --highlight-line {2}' \
     --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-    --bind 'enter:become($EDITOR {1} +{2})'
+    --bind 'enter:become(${EDITOR:-vim} {1} +{2})'
