@@ -2,7 +2,7 @@
 
 # From: https://github.com/junegunn/fzf/blob/master/ADVANCED.md#log-tailing
 
-command='docker compose "$@" ps --format "table {{.Service}}\t{{.Name}}\t{{.Image}}\t{{.Command}}\t{{.Service}}\t{{.Status}}\t{{.Ports}}"' \
+command='docker compose "$@" ps --format "table {{.Service}}\t{{.Image}}\t{{.Command}}\t{{.Service}}\t{{.Status}}\t{{.Ports}}"' \
 args="$@" \
 fzf \
 --info=inline --layout=reverse --header-lines=1 \
