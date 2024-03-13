@@ -19,6 +19,6 @@ depends = []
 "alacritty.toml" = "~/.config/alacritty/alacritty.toml"
 ".tmux.conf" = "~/.tmux.conf"
 "bin/frg.sh" = "~/bin/frg"
-"bin/clg.sh" = "~/bin/clg"
+"bin/clg.sh" = { target = "~/bin/clg", type = "symbolic" }
 
 [default.variables]
