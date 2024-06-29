@@ -24,8 +24,12 @@
         "joinedload",
         "matheworkout",
         "mongoengine",
+        "pyclass",
+        "pyfunction",
+        "pymethods",
         "realip",
         "sqlalchemy",
+        "sqlx",
         "thiserror",
         "wtforms"
     ],
