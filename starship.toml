@@ -24,6 +24,7 @@ $docker_context\
 $time\
 $memory_usage\
 $cmd_duration\
+$status\
 $character\
 """
 
@@ -142,3 +143,8 @@ format = "|[$symbol$number]($style)"
 
 [character]
 format = '$symbol'
+
+[status]
+disabled = false
+format = '[|$symbol$status]($style)'
+symbol = ''
