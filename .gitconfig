@@ -39,6 +39,11 @@
 
 [push]
     default = current
+    pushoption = merge_request.create
+    autoSetupRemote = true
+
+[fetch]
+        prune = true
 
 [pull]
     rebase = true
