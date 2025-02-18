@@ -14,6 +14,6 @@ INITIAL_QUERY="${*:-}"
     --prompt '1. ripgrep> ' \
     --delimiter : \
     --header '╱ CTRL-R (rg) ╱ CTRL-F (fzf) ╱' \
-    --preview 'bat --color=always {1} --highlight-line {2}' \
+    --preview 'if command -v bat >/dev/null; then bat --color=always {1} --highlight-line {2}; else batcat --color=always {1} --highlight-line {2}; fi' \
     --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
     --bind 'enter:become(${EDITOR:-vim} {1} +{2})'
