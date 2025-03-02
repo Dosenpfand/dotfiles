@@ -16,6 +16,9 @@
 
 [core]
     pager = delta
+    excludesfile = ~/.gitignore
+    fsmonitor = true
+    untrackedCache = true
 
 [log]
     date = iso
@@ -38,9 +41,10 @@
     verbose = true
 
 [push]
-    default = current
-    pushoption = merge_request.create
+    default = simple
     autoSetupRemote = true
+    followTags = true
+    pushoption = merge_request.create
 
 [fetch]
         prune = true
@@ -48,13 +52,25 @@
 [pull]
     rebase = true
 
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+
 [merge]
     conflictstyle = zdiff3
     tool = meld
 
+[tag]
+        sort = version:refname
+
+[init]
+        defaultBranch = main
+
 [rebase]
-    autosquash = true
-    autostash = true
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
 
 [rerere]
     enabled = true
@@ -62,13 +78,16 @@
 
 [diff]
     external = "difft"
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 
 [branch]
     sort = -committerdate
 
 [column]
     ui = auto
-
 
 [filter "lfs"]
     required = true
