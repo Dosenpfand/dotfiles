@@ -253,12 +253,22 @@ function whatsmyip ()
 eval "$(starship init bash)"
 
 # fzf
-if [ -f /usr/share/fzf/key-bindings.bash ]; then
-	. /usr/share/fzf/key-bindings.bash
-	. /usr/share/fzf/completion.bash
-elif [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
-	. /usr/share/fzf/shell/key-bindings.bash
+if fzf --bash >/dev/null 2>&1; then
+	eval "$(fzf --bash)"
+else
+	if [ -f /usr/share/fzf/key-bindings.bash ]; then
+		. /usr/share/fzf/key-bindings.bash
+		. /usr/share/fzf/completion.bash
+	elif [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
+		. /usr/share/fzf/shell/key-bindings.bash
+	elif [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+		. /usr/share/doc/fzf/examples/key-bindings.bash
+	fi
+	if [ -f ~/bin/completion.bash ]; then
+		. ~/bin/completion.bash
+	fi
 fi
+
 if [ -f ~/bin/fzf-git.sh ]; then
 	. ~/bin/fzf-git.sh
 fi
