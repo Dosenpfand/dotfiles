@@ -96,12 +96,28 @@
     process = git-lfs filter-process
 
 [alias]
-    fpush = push --force-with-lease
+    # Logs
     lg = lg1
     lg1 = lg1-specific --all
     lg2 = lg2-specific --all
     lg3 = lg3-specific --all
-
     lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
     lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+
+    # Rebasing
+    force-push = push --force-with-lease
+    fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
+    rebase-mergebase = "!git rebase -i $(git merge-base HEAD main)"
+
+    # FZF helpers
+    # Mostly from https://fortes.com/2022/make-git-better-with-fzf/
+    add-multi = "!git ls-files --deleted --modified --other --exclude-standard | fzf -0 -m --preview 'git diff --color=always {-1}' | xargs -r git add"
+    add-multi-patch = "!git ls-files --deleted --modified --exclude-standard | fzf -0 -m --preview 'git diff --color=always {-1}' | xargs -r -o git add -p"
+    rebase-interactive = "!f() { commit=$(git log --oneline | fzf -0 -m  --preview 'git show --color=always --format=oneline {1}' | cut -d' ' -f1); [ -n \"$commit\" ] && git rebase -i ${commit}^; }; f"
+    checkout-interactive = "!git branch --all | grep -v '^[*+]' | awk '{print $1}' | fzf -0 --preview 'git show --color=always {-1}' | sed 's/remotes\\/origin\\///g' | xargs -r git checkout"
+    stash-pop = "!git stash list | fzf -0 --preview 'git show --pretty=oneline --color=always --patch \"$(echo {} | cut -d: -f1)\"' | cut -d: -f1 | xargs -r git stash pop"
+
+    # Worktree management
+    wt-add = "!f() { git worktree add ../$1 -b $1; }; f"
+	wt-checkout = "!f() { git worktree add ../$1 $1; }; f"
