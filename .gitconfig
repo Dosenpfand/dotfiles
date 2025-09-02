@@ -95,6 +95,9 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
 
+[submodule]
+        recurse = true
+
 [alias]
     # Logs
     lg = lg1
