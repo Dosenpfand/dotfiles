@@ -16,7 +16,7 @@
 
 [core]
     pager = delta
-    excludesfile = ~/.gitignore
+    excludesFile = ~/.gitignore
     fsmonitor = true
     untrackedCache = true
 

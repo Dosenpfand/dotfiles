@@ -13,6 +13,7 @@ depends = []
 ".bashrc" = "~/.bashrc"
 ".profile" = "~/.profile"
 ".gitconfig" = "~/.gitconfig"
+"gitignore" = "~/.gitignore"
 "vscode/settings.json" = "~/.config/Code/User/settings.json"
 "vscode/keybindings.json" = "~/.config/Code/User/keybindings.json"
 "ripgreprc" = "~/.ripgreprc"
