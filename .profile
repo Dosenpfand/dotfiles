@@ -24,5 +24,5 @@ fi
 PATH="${PATH}:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin"
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec Hyprland
+  exec start-hyprland
 fi
