@@ -4,7 +4,7 @@
 depends = []
 
 [default.files]
-"hyprland.conf" = "~/.config/hypr/hyprland.conf"
+"hyprland.lua" = "~/.config/hypr/hyprland.lua"
 "waybar/config" = "~/.config/waybar/config"
 "waybar/style.css" = "~/.config/waybar/style.css"
 "dunstrc" = "~/.config/dunst/dunstrc"
