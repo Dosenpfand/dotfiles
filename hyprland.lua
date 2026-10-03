@@ -28,10 +28,6 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-hl.env("XDG_CONFIG_HOME", "$HOME/.config")
-hl.env("XDG_CACHE_HOME", "$HOME/.cache")
-hl.env("XDG_DATA_HOME", "$HOME/.local/share")
-hl.env("XDG_STATE_HOME", "$HOME/.local/state")
 hl.env("GTK_THEME", "Adwaita:dark")
 
 hl.device({
