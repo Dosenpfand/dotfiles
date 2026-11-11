@@ -16,67 +16,33 @@
         "temperature",
         "backlight",
         "battery",
-        "custom/tlp",
+        "custom/powerprofile",
         "clock",
         "tray",
         "idle_inhibitor"
     ],
-    // Modules configuration
     "hyprland/window": {
         "format": "{}",
         "separate-outputs": true
-    },
-    "hyprland/language": {
-        "format": " {}"
     },
     "hyprland/workspaces": {
         "disable-scroll": false,
         "all-outputs": true,
         "format": "{name} {icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
             "urgent": "",
-            // "active": "",
+            "active": "",
             "default": ""
         },
-        // TODO: not yet working?
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": []
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4
+            ]
         },
-        "sort-by-number": true,
-        "actions": {
-            "on-click-right": "activate",
-            "ob-click-right": "close"
-        },
-        "on-click": "activate"
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": [
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
+        "sort-by-number": true
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -85,18 +51,38 @@
             "deactivated": ""
         }
     },
+    "custom/powerprofile": {
+        "exec": "p=$(cat /sys/firmware/acpi/platform_profile); echo \"{\\\"alt\\\":\\\"$p\\\",\\\"tooltip\\\":\\\"$p\\\"}\"",
+        "return-type": "json",
+        "interval": 10,
+        "format": "{icon}",
+        "format-icons": {
+            "performance": "󰓅",
+            "balanced": "󰾅",
+            "low-power": "󰾆",
+            "quiet": "󰾆",
+            "cool": "󰾆"
+        }
+    },
     "tray": {
-        // "icon-size": 21,
         "spacing": 5
     },
     "clock": {
-        // "timezone": "America/New_York",
         "format": "{:%Y-%m-%d %H:%M}",
         "interval": 1,
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "left",
+            "format": {
+                "today": "<b><u>{}</u></b>",
+                "weeks": "<span color='#888888'>W{}</span>"
+            }
+        },
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%a, %Y-%m-%d %H:%M:%S}"
     },
     "cpu": {
+        "interval": 5,
         "format": "{usage}% ",
         "tooltip": false
     },
@@ -104,10 +90,10 @@
         "format": "{}% "
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+        "input-filename": "temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
+        "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": [
             "󰉬",
@@ -116,11 +102,12 @@
         ]
     },
     "backlight": {
-        // "device": "acpi_video1",
+        "on-scroll-up": "brightnessctl s +5%",
+        "on-scroll-down": "brightnessctl s 5%-",
         "format": "{percent}% {icon}",
         "format-icons": [
             ""
-        ] // ["", "", "", "", "", "", "", "", ""]
+        ]
     },
     "battery": {
         "states": {
@@ -133,7 +120,7 @@
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-good": "{capacity}% ",
-        "format-full": "", // An empty format will hide the module
+        "format-full": "{capacity}% {icon}",
         "format-icons": [
             "",
             "",
@@ -143,10 +130,10 @@
         ]
     },
     "network": {
-        // "interface": "wlp2*",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-ethernet": "{ifname} 󰊗",
+        "tooltip-format-wifi": "{ipaddr} via {gwaddr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
@@ -173,15 +160,7 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
-    },
-    "custom/tlp": {
-        "exec": "sudo tlp-stat -s | grep 'Mode           =' | cut -d= -f2",
-        "interval": 120,
-        "exec-on-event": true,
-        "on-click": "sudo tlp bat",
-        "on-click-middle": "sudo tlp start",
-        "on-click-right": "sudo tlp ac",
-        "format": "{} "
+        "on-click": "if command -v pavucontrol >/dev/null; then pavucontrol; else pwvucontrol; fi",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     }
 }

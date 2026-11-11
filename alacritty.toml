@@ -214,3 +214,17 @@ lines = 24
 [window.padding]
 x = 10
 y = 10
+
+# Resume the "main" tmux session if no other client is attached to it.
+# Otherwise start a throwaway session that is destroyed when its window closes.
+[terminal.shell]
+program = "/bin/sh"
+args = ["-c", '''
+if ! tmux has-session -t '=main' 2>/dev/null; then
+  exec tmux new-session -s main
+elif tmux list-sessions -F '#{session_name} #{session_attached}' | grep -qx 'main 0'; then
+  exec tmux attach-session -t '=main'
+else
+  exec tmux new-session \; set-option destroy-unattached on
+fi
+''']

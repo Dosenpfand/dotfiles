@@ -273,9 +273,12 @@ if [ -f ~/bin/fzf-git.sh ]; then
 	. ~/bin/fzf-git.sh
 fi
 
-eval $(keychain --eval --quiet id_ed25519 id_rsa)
+eval $(keychain --eval --quiet id_ed25519)
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+export DUT_IP=10.2.167.222

@@ -61,12 +61,10 @@
         100
     ],
     "editor.minimap.enabled": true,
-
     // Latex settings
     "editor.minimap.renderCharacters": false,
     "editor.renderWhitespace": "boundary",
     "latex-workshop.chktex.enabled": true,
-
     // Debug
     "C_Cpp.loggingLevel": "Debug",
     "workbench.startupEditor": "newUntitledFile",
@@ -77,4 +75,11 @@
     "languageToolLinter.languageTool.language": "de",
     "git.suggestSmartCommit": false,
     "docker.extension.enableComposeLanguageServer": false,
+    "telemetry.feedback.enabled": false,
+    "telemetry.editStats.enabled": false,
+    "git.blame.editorDecoration.enabled": true,
+    "git.blame.statusBarItem.enabled": true,
+    "editor.formatOnSave": true,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "terminal.integrated.initialHint": false
 }
