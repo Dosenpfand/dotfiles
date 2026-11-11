@@ -249,6 +249,9 @@ hl.config({
 })
 
 hl.on("hyprland.start", function()
+    -- wireplumber outlives Hyprland sessions and can leave ALSA cards on the
+    -- "off" profile after re-login/dock changes; restart it so it re-selects profiles
+    hl.exec_cmd("systemctl --user restart wireplumber")
     hl.exec_cmd("waybar")
     hl.exec_cmd("dunst")
     hl.exec_cmd("systemctl --user start hypridle")
