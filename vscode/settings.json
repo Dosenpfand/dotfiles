@@ -81,5 +81,29 @@
     "git.blame.statusBarItem.enabled": true,
     "editor.formatOnSave": true,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "terminal.integrated.initialHint": false
+    "terminal.integrated.initialHint": false,
+    "security.workspace.trust.startupPrompt": "once",
+    // Telemetry / experiments
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    // AI / chat / agent features
+    "chat.disableAIFeatures": true,
+    "chat.agent.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "chat.extensionTools.enabled": false,
+    "chat.mcp.access": "none",
+    "chat.mcp.discovery.enabled": {
+        "claude-desktop": false,
+        "copilot": false,
+        "windsurf": false,
+        "cursor-global": false,
+        "cursor-workspace": false
+    },
+    "workbench.settings.showAISearchToggle": false,
+    "github.copilot.enable": {
+        "*": false
+    },
+    "github.copilot.nextEditSuggestions.enabled": false
 }
